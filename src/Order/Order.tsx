@@ -1,5 +1,5 @@
-import React, {useState} from "react"
-import {Button, Checkbox, FormControlLabel, MenuItem, Radio, RadioGroup, Select} from "@mui/material"
+import React, {ChangeEvent, useState} from "react"
+import {Button, Checkbox, FormControlLabel, MenuItem, Radio, RadioGroup, Select, SelectChangeEvent} from "@mui/material"
 import {useNavigate} from "react-router-dom"
 
 type Pizza = {
@@ -18,20 +18,20 @@ export function Order() {
     const [pizza, updatePizza] = useState<Pizza>(initialPizza)
     const navigate = useNavigate();
 
-    const updateSize = ({target}) => updatePizza({
+    const updateSize = (event: SelectChangeEvent) => updatePizza({
         ...pizza,
-        size: target.value
+        size: event.target.value
     })
 
-    const updateDough = ({target}) => {
-        console.log('update dough: ', target.value)
+    const updateDough = (event: ChangeEvent<HTMLInputElement>) => {
+        console.log('update dough: ', event.target.value)
         updatePizza({
             ...pizza,
-            dough: target.value
+            dough: event.target.value
         })
     }
-
-    const checkTopping = (topping) => {
+    
+    const checkTopping = (topping: string) => {
         return pizza.toppings.indexOf(topping) > -1
     }
 
