@@ -26,7 +26,7 @@ describe('order page', () => {
 
         await userEvent.click(screen.getByRole('option', {name: 'Large'}))
 
-        expect(screen.getByRole('option', {name: 'Small'})).toBeNull()
+        expect(screen.queryByRole('option', {name: 'Small'})).toBeNull()
         expect(screen.queryByRole('option', {name: 'Medium'})).toBeNull()
         expect(screen.getByRole('button', {name: 'Large'})).toBeVisible()
     })

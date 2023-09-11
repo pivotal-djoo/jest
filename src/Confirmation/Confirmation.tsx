@@ -11,7 +11,7 @@ export function Confirmation() {
             <div>Pizza size: {state.size}</div>
             <div>Dough: {state.dough}</div>
             <div>Toppings:</div>
-            {state.toppings.map((topping: string) => <div>{topping}</div>)}
+            {state.toppings.map((topping: string) => <div key={topping}>{topping}</div>)}
         </>
     )
 }
