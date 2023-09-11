@@ -23,14 +23,11 @@ export function Order() {
         size: event.target.value
     })
 
-    const updateDough = (event: ChangeEvent<HTMLInputElement>) => {
-        console.log('update dough: ', event.target.value)
-        updatePizza({
-            ...pizza,
-            dough: event.target.value
-        })
-    }
-    
+    const updateDough = (event: ChangeEvent<HTMLInputElement>) => updatePizza({
+        ...pizza,
+        dough: event.target.value
+    })
+
     const checkTopping = (topping: string) => {
         return pizza.toppings.indexOf(topping) > -1
     }
@@ -83,7 +80,6 @@ export function Order() {
             </RadioGroup>
 
             <h2>Choose toppings</h2>
-
             <div>
                 <FormControlLabel control={
                     <Checkbox checked={checkTopping('cheese')} onChange={() => updateToppings('cheese')}/>
@@ -105,7 +101,9 @@ export function Order() {
                 } label="Pineapples"/>
             </div>
 
-            <Button variant="contained" onClick={() => navigate('/confirmation', {state: pizza})}>Order</Button>
+            <Button variant="contained" onClick={() => navigate('/confirmation', {state: pizza})}>
+                Order
+            </Button>
         </>
     )
 }
