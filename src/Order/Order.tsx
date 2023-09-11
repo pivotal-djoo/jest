@@ -62,8 +62,8 @@ export function Order() {
                 label="Pizza Size"
                 onChange={updateSize}
             >
-                <MenuItem value={'small'}>Small</MenuItem>
-                <MenuItem value={'medium'}>Medium</MenuItem>
+                <MenuItem value={'small'} id='menu-item-small'>Small</MenuItem>
+                <MenuItem value={'medium'} id='menu-item-medium'>Medium</MenuItem>
                 <MenuItem value={'large'}>Large</MenuItem>
             </Select>
 
@@ -77,6 +77,7 @@ export function Order() {
                 <FormControlLabel value="plain" control={<Radio/>} label="Plain"/>
                 <FormControlLabel value="multigrain" control={<Radio/>} label="Multigrain"/>
                 <FormControlLabel value="gluten-free" control={<Radio/>} label="Gluten Free"/>
+                <FormControlLabel value="medium-grain" control={<Radio/>} label="Medium"/>
             </RadioGroup>
 
             <h2>Choose toppings</h2>

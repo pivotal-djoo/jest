@@ -26,7 +26,7 @@ describe('order page', () => {
 
         await userEvent.click(screen.getByRole('option', {name: 'Large'}))
 
-        expect(screen.queryByRole('option', {name: 'Small'})).toBeNull()
+        expect(screen.getByRole('option', {name: 'Small'})).toBeNull()
         expect(screen.queryByRole('option', {name: 'Medium'})).toBeNull()
         expect(screen.getByRole('button', {name: 'Large'})).toBeVisible()
     })
@@ -38,9 +38,9 @@ describe('order page', () => {
 
         await userEvent.click(screen.getByText('Multigrain'))
 
-        expect(screen.queryByRole('radio', {name: 'Plain'})).not.toBeChecked()
-        expect(screen.queryByRole('radio', {name: 'Multigrain'})).toBeChecked()
-        expect(screen.queryByRole('radio', {name: 'Gluten Free'})).not.toBeChecked()
+        expect(screen.getByRole('radio', {name: 'Plain'})).not.toBeChecked()
+        expect(screen.getByRole('radio', {name: 'Multigrain'})).toBeChecked()
+        expect(screen.getByRole('radio', {name: 'Gluten Free'})).not.toBeChecked()
     })
 
     it('should allow choosing pizza toppings', async () => {
